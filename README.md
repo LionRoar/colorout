@@ -1,7 +1,6 @@
 # colorout
 simple javascript library to log colorful messages to the console.
 supports 8-color only.
-colorout wraps Nodejs [Class:Console](http://nodejs.cn/doc/node/console.html)
 
 ## usage
 
