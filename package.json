@@ -1,6 +1,6 @@
 {
   "name": "colorout",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "colorful messages in the console",
   "main": "index.js",
   "directories": {
