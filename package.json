@@ -1,0 +1,29 @@
+{
+  "name": "colorout",
+  "version": "1.0.0",
+  "description": "colorful messages in the console",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha "
+  },
+  "keywords": [
+    "color",
+    "console",
+    "log",
+    "colorful",
+    "error",
+    "logger",
+    "colors",
+    "messages"
+  ],
+  "author": "Ferris Ateniese <lionroar07@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
