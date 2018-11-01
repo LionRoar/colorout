@@ -1,34 +1,34 @@
-# colorout
-simple javascript library to log colorful messages to the console.
-supports 8-color only.
+# colorout.js
+
+simple Nodejs library to log colorful messages to the console.
+supports 16-colors.
 
 ## usage
-
-to construct a logger just chain style functions and the last will be your logging method for example
 
 ```js
 
 //require
-const Colorout = require('colorout');
+const colorout = require('colorout');
+//require COLOR AND TYPE CONSTANTS
+const {TYPE , COLOR } = colorout;
 
-const green = new Colorout().black.bold.bgGreen;
-//
-//chain background color text color  and text special style
-const error = Colorout.logger.bgRed.black;
-//then call log
+/**
+ *
+ * @param { COLOR.[NAME] } foregroundColor?  //constant
+ * @param { COLOR.[NAME] } backgroundColor? //constant
+ * @param { TYPE.[NAME] } fontType? //constant
+ **/
+//colorout(foregroundColor ,backgroundColor ,fontType);
+
+const green = colorout(COLOR.green , COLOR.white, TYPE.bold);
+const error = colorout(COLOR.red);
+
 green.log('I love green!');
-
 error.log('This is an error message')
-
 
 ```
 
-`Colorout.logger` is the same as `new Colorout()`
-
-
-### Chainable functions
-
-#### font types chains [use only one]
+### Font `TYPE` CONSTANTS
 
 ```js
     .normal
@@ -39,9 +39,11 @@ error.log('This is an error message')
     .hidden
 ```
 
-#### foreground color chains [only one]
+### foreground/background `COLOR` Constants
 
-`8colors`
+`16 colors`
+
+The prefix `b` before the color name stands for `bright`
 
 ```js
 
@@ -54,21 +56,13 @@ error.log('This is an error message')
     .magenta
     .cyan
     .white
+    .bBlack
+    .bRed
+    .bGreen
+    .bYellow
+    .bBlue
+    .bMagenta
+    .bCyan
+    .bWhite
 
-```
-
-#### background chains [only one]
-
-`8 colors all starts with bg-`
-
-```js
-    .bgDefault
-    .bgBlack
-    .bgRed
-    .bgGreen
-    .bgYellow
-    .bgBlue
-    .bgMagenta
-    .bgCyan
-    .bgWhite
 ```

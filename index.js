@@ -1,3 +1,3 @@
-const Colorout = require('./lib/colorout');
+const colorout = require('./lib/colorout');
 
-module.exports = Colorout;
+module.exports = colorout;

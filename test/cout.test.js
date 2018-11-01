@@ -1,19 +1,33 @@
 const expect = require('chai').expect;
-const {FG_COLOR ,BG_COLOR ,TYPE , RESET} = require('../lib/ansiConstants');
-const ColorOut = require('../index');
+const {
+    FG_COLOR,
+    BG_COLOR,
+    RESET
+} = require('../lib/ansiConstants');
 
+const colorout = require('../index');
+const {
+    TYPE,
+    COLOR
+} = colorout;
 
-describe('colorOut - tests' , function(){
+describe('colorout tests', function () {
 
-    const fakeLogger =  { 
-        log: (txt) => (txt),
-    };
+    it('Should return `ansi` color-codes with text', function () {
 
-    it('Should return ansi color-codes with text' , function(){
-        
-        let cout = new ColorOut(fakeLogger).bold.green;
+        let outputString = '';
+        const fakeStdout = {
+            'write': function fakeLogger(text) {
+                outputString += text;
+            }
+        };
         let str = 'Color me out of here!';
-        let expected = `${BG_COLOR.bgDefault}${FG_COLOR.green}${TYPE.bold}${str}${RESET}`;
-        expect(cout.log(str)).to.equal(expected);
+        let expected = `${FG_COLOR.green}${BG_COLOR.bWhite}${TYPE.bold}${str}${RESET}\n`;
+        let greenLogger = colorout(
+            COLOR.green,
+            COLOR.bWhite,
+            TYPE.bold,
+            fakeStdout).log(str);
+        expect(outputString).to.equal(expected);
     });
 })
