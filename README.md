@@ -22,9 +22,14 @@ const {TYPE , COLOR } = colorout;
 
 const green = colorout(COLOR.green , COLOR.white, TYPE.bold);
 const error = colorout(COLOR.red);
+const blue = colorout(COLOR.blue);
 
 green.log('I love green!');
 error.log('This is an error message')
+
+//*new* or mix colors
+
+green.log('green is the new ',blue.inline('blue'));
 
 ```
 
